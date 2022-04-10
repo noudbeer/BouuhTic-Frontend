@@ -1,0 +1,7 @@
+{
+  "name": "Ionic-BouuhTic",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

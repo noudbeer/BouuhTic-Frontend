@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      BouuhTic
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item-sliding #slidingItem *ngFor="let shop of shops">
+      <ion-item color="light" routerLink="/shop/{{shop._id}}/categories">
+        {{ shop.name }}
+      </ion-item>
+
+      <ion-item-options side="end">
+        <ion-button (click)="editShop([shop])"   color="secondary">Edit</ion-button>
+        <ion-button (click)="delete([shop._id])" color="danger">Delete</ion-button>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="addShop()" >
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

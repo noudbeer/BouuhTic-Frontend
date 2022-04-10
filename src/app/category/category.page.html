@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button routerLink="/">
+        <ion-icon name="arrow-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title *ngIf="shop" ngDefaultControl [(ngModel)]="title">{{ shop.name }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item-sliding #slidingItem *ngFor="let category of categories">
+
+      <ion-item color="light" *ngIf="shop" routerLink="/shop/{{shop._id}}/category/{{category._id}}/products">
+        {{ category.title }}
+      </ion-item>
+
+      <ion-item-options side="end">
+        <ion-button (click)="editCategory(category)" color="secondary">Edit</ion-button>
+        <ion-button (click)="delete(category._id)" color="danger">Delete</ion-button>
+      </ion-item-options>
+
+    </ion-item-sliding>
+  </ion-list>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="addCategory()" >
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>>
